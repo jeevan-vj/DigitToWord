@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DigitToWord.App">
+    <Application.Resources>
+        <ResourceDictionary>
+             <OnPlatform x:Key="font_book" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_book.ttf#FuturaBT-Book" />
+                <On Platform="iOS" Value="FuturaBT-Book" />
+            </OnPlatform>
+            <OnPlatform x:Key="font_medium" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_medium.ttf#FuturaBT-Medium" />
+                <On Platform="iOS" Value="FuturaBT-Medium" />
+            </OnPlatform>
+            <OnPlatform x:Key="font_heavy" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_heavy.ttf#FuturaBT-Heavy" />
+                <On Platform="iOS" Value="FuturaBT-Heavy" />
+            </OnPlatform>
+            <OnPlatform x:Key="font_extrablack" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_extrablack.ttf#FuturaBT-ExtraBlack" />
+                <On Platform="iOS" Value="FuturaBT-ExtraBlack" />
+            </OnPlatform>
+             <!-- Primary colors -->
+            <Color x:Key="dark_purple">#301536</Color>
+            <Color x:Key="dark_blue">#1b1537</Color>
+            <Color x:Key="dark_yellow">#f3b998</Color>
+            <Color x:Key="white">#FFFFFF</Color>
+            <Color x:Key="light_purple">#7c7c99</Color>
+            <Color x:Key="medium_purple">#312141</Color>
+            
+             <Style TargetType="Label" x:Key="MediumLabel">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                      <OnPlatform x:TypeArguments="x:String">
+                        <OnPlatform.iOS>CircularSpotifyTxT-Med</OnPlatform.iOS>
+                        <OnPlatform.Android>circular_medium.ttf#CircularSpotifyTxT-Med</OnPlatform.Android>
+                      </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
