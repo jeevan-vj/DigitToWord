@@ -25,8 +25,8 @@
                 <StackLayout x:Name="FormLayout" Spacing="16" VerticalOptions="CenterAndExpand">
                     <StackLayout Spacing="8">
                         <Label Text="YOUR NUMBER" FontFamily="{StaticResource font_medium}" FontSize="12" TextColor="#ffffff" />
-                        <Entry Text="{Binding Number}" Keyboard="Numeric" TextColor="White" BackgroundColor="Transparent" 
-                               Placeholder="Enter you number" PlaceholderColor="{StaticResource dark_yellow}" >
+                        <Entry Text="{Binding Number}" Keyboard="Numeric" TextColor="Black" BackgroundColor="#FFFFFF" 
+                               Placeholder="Enter you number" PlaceholderColor="White" >
                             
                           <Entry.Behaviors>
                              <behaviors:EventToCommandBehavior
