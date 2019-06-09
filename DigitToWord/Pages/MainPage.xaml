@@ -14,13 +14,13 @@
                     <On Platform="iOS" Value="false" />
                 </OnPlatform>
             </ContentView.IsVisible>
-            <Label FontSize="16"
+          <!--  <Label FontSize="16"
                    HorizontalTextAlignment="Center"
                    Style="{StaticResource MediumLabel}"
                    Text="Home"
                    TextColor="#FFF"
                    VerticalTextAlignment="Center"
-                   HorizontalOptions="Fill" />
+                   HorizontalOptions="Fill" />-->
         </ContentView>
         <StackLayout Padding="24"
                      Spacing="0"
