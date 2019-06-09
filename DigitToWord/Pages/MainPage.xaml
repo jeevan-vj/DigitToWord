@@ -1,58 +1,101 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:controls="clr-namespace:DigitToWord.Controls" 
-             xmlns:local="clr-namespace:DigitToWord" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="DigitToWord.Pages.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:DigitToWord.Behaviors"
-             Visual="Material"
-             x:Class="DigitToWord.Pages.MainPage">
+             xmlns:controls="clr-namespace:DigitToWord.Controls"
+             xmlns:local="clr-namespace:DigitToWord"
+             Visual="Material">
     <StackLayout BackgroundColor="#222327">
-        <ContentView BackgroundColor="#222327" HeightRequest="80">
-                <ContentView.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <On Platform="Android" Value="true" />
-                        <On Platform="iOS" Value="false" />
-                    </OnPlatform>
-                </ContentView.IsVisible>
-                <Label Text="Home" Style="{StaticResource MediumLabel}"  TextColor="#FFF" FontSize="16" 
-                HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Fill" />
-            </ContentView>
-        <StackLayout VerticalOptions="StartAndExpand" Padding="24" Spacing="0" >
-             <StackLayout VerticalOptions="CenterAndExpand">
-                <Label x:Name="WelcomeLabel" Text="WELCOME TO" FontSize="16" FontFamily="{StaticResource font_medium}" TextColor="{StaticResource dark_yellow}" />
-                <Label x:Name="PosyLabel" Text="DIGIT TO WORD" FontSize="28" FontFamily="{StaticResource font_heavy}" TextColor="#ffffff" />
-               
-                 <Label x:Name="IntroLabel" Margin="0,24,0,16" FontSize="15" FontFamily="{StaticResource font_book}" TextColor="#ffffff" Text="This tool lets you quickly convert numbers into word" />
-                <StackLayout x:Name="FormLayout" Spacing="16" VerticalOptions="CenterAndExpand">
+        <ContentView HeightRequest="80" BackgroundColor="#222327">
+            <ContentView.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean">
+                    <On Platform="Android" Value="true" />
+                    <On Platform="iOS" Value="false" />
+                </OnPlatform>
+            </ContentView.IsVisible>
+            <Label FontSize="16"
+                   HorizontalTextAlignment="Center"
+                   Style="{StaticResource MediumLabel}"
+                   Text="Home"
+                   TextColor="#FFF"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Fill" />
+        </ContentView>
+        <StackLayout Padding="24"
+                     Spacing="0"
+                     VerticalOptions="StartAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label x:Name="WelcomeLabel"
+                       FontFamily="{StaticResource font_medium}"
+                       FontSize="16"
+                       Text="WELCOME TO"
+                       TextColor="{StaticResource dark_yellow}" />
+                <Label x:Name="PosyLabel"
+                       FontFamily="{StaticResource font_heavy}"
+                       FontSize="28"
+                       Text="DIGIT TO WORD"
+                       TextColor="#ffffff" />
+                <Label x:Name="IntroLabel"
+                       Margin="0,24,0,16"
+                       FontFamily="{StaticResource font_book}"
+                       FontSize="15"
+                       Text="This tool lets you quickly convert numbers into word"
+                       TextColor="#ffffff" />
+                <StackLayout x:Name="FormLayout"
+                             Spacing="16"
+                             VerticalOptions="CenterAndExpand">
                     <StackLayout Spacing="8">
-<!--                        <Label Text="YOUR NUMBER" FontFamily="{StaticResource font_medium}" FontSize="12" TextColor="#ffffff" />-->
-                        <Entry Text="{Binding Number}" Keyboard="Numeric" TextColor="Black" BackgroundColor="#FFFFFF" 
-                               Placeholder="Enter you number" PlaceholderColor="White" >
-                            
-                          <Entry.Behaviors>
-                             <behaviors:EventToCommandBehavior
-                            EventName="TextChanged"
-                            Command="{Binding NumberToWordCommand}" />
-                          </Entry.Behaviors>
-                            
+                        <!--                        <Label Text="YOUR NUMBER" FontFamily="{StaticResource font_medium}" FontSize="12" TextColor="#ffffff" />-->
+                        <Entry BackgroundColor="#FFFFFF"
+                               Keyboard="Numeric"
+                               Placeholder="Enter you number"
+                               Text="{Binding Number}"
+                               TextColor="Black">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior Command="{Binding NumberToWordCommand}" EventName="TextChanged" />
+                            </Entry.Behaviors>
                         </Entry>
                     </StackLayout>
                 </StackLayout>
-                 <Label x:Name="SubTitleLabel" Text="HERE ARE YOUR RESULTS" FontSize="16" FontFamily="{StaticResource font_medium}" TextColor="{StaticResource dark_yellow}" />
-                
-                 <controls:RoundedContentView x:Name="Card" Margin="0,24,0,0" BackgroundColor="{StaticResource white}" CornerRadius="8">
-                <StackLayout Padding="24" Spacing="8">
-                    <StackLayout Orientation="Horizontal">
-                        <Label VerticalOptions="Center"  HorizontalOptions="Start" FontSize="12" FontFamily="{StaticResource font_medium}" TextColor="{StaticResource light_purple}" Text="{Binding Word}" />
-                        <Label VerticalOptions="Center" LineBreakMode="TailTruncation" Text="{Binding SuggestedQuantity, StringFormat='{0:0.00} units'}" HorizontalOptions="EndAndExpand" FontSize="16" FontFamily="{StaticResource font_book}" TextColor="{StaticResource dark_blue}" />
+                <Label x:Name="SubTitleLabel"
+                       FontFamily="{StaticResource font_medium}"
+                       FontSize="16"
+                       Text="HERE ARE YOUR RESULTS"
+                       TextColor="{StaticResource dark_yellow}" />
+                <controls:RoundedContentView x:Name="Card"
+                                             Margin="0,24,0,0"
+                                             BackgroundColor="{StaticResource white}"
+                                             CornerRadius="8">
+                    <StackLayout Padding="24" Spacing="8">
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontFamily="{StaticResource font_medium}"
+                                   FontSize="12"
+                                   Text="{Binding Word}"
+                                   TextColor="{StaticResource light_purple}"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center" />
+                            <Label FontFamily="{StaticResource font_book}"
+                                   FontSize="16"
+                                   LineBreakMode="TailTruncation"
+                                   Text="{Binding SuggestedQuantity, StringFormat='{0:0.00} units'}"
+                                   TextColor="{StaticResource dark_blue}"
+                                   HorizontalOptions="EndAndExpand"
+                                   VerticalOptions="Center" />
+                        </StackLayout>
+                        <BoxView Margin="0,16"
+                                 HeightRequest="1"
+                                 BackgroundColor="#DDDDDD" />
+                        <Label FontFamily="{StaticResource font_heavy}"
+                               FontSize="12"
+                               Text="{Binding ErrorMessage}"
+                               TextColor="{StaticResource dark_blue}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
                     </StackLayout>
-                   
-                    <BoxView Margin="0,16" HeightRequest="1" BackgroundColor="#DDDDDD" />
-                    <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding ErrorMessage}" FontSize="12" FontFamily="{StaticResource font_heavy}" TextColor="{StaticResource dark_blue}" />
-                </StackLayout>
-            </controls:RoundedContentView>
-          
-              </StackLayout>
+                </controls:RoundedContentView>
+                <Button Command="{Binding CopyText}" Text="Copy Text" />
+            </StackLayout>
         </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -74,6 +74,9 @@
     <PackageReference Include="Xamarin.Forms.Visual.Material">
       <Version>4.0.0.482894</Version>
     </PackageReference>
+    <PackageReference Include="UXDivers.GorillaPlayer.SDK.AutoConfig">
+      <Version>1.5.0-Beta4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
