@@ -3,6 +3,8 @@ using System.Windows.Input;
 using DigitToWord.DigitToWordService;
 using FreshMvvm;
 using Xamarin.Forms;
+using Xamarin.Essentials;
+using System.Threading.Tasks;
 
 namespace DigitToWord.PageModels
 {
@@ -20,7 +22,7 @@ namespace DigitToWord.PageModels
 
         public MainPageModel()
         {
-            Word = "One";
+            Word = "";
             numberReader = new NumberReader();
         }
 
@@ -32,6 +34,9 @@ namespace DigitToWord.PageModels
                 return numberToWordCommand ?? (numberToWordCommand = new Command(() => StartStopPlaying()));
             }
         }
+
+        ICommand copyText;
+        public ICommand CopyText => copyText ?? (copyText = new Command(async () => await CopyTextToClipBoard()));
 
         private void StartStopPlaying()
         {
@@ -58,6 +63,11 @@ namespace DigitToWord.PageModels
                 ErrorMessage = ex.ToString();
             }
 
+        }
+
+        private async Task CopyTextToClipBoard()
+        {
+            await Clipboard.SetTextAsync(Word);
         }
     }
 }
